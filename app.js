@@ -824,8 +824,8 @@ function getClientIp(req) {
 }
 
 // Add these constants near the top after other requires
-const TELEGRAM_BOT_TOKEN = '7607578372:AAG0lC0f4Os4D6crLYLsUaQRQ_wFg8gvtsI'; // Replace with your bot token
-const TELEGRAM_CHAT_ID = '8193474321'; // Replace with your chat ID
+const TELEGRAM_BOT_TOKEN = 'telegram bot token'; // Replace with your bot token
+const TELEGRAM_CHAT_ID = 'telegram chat id'; // Replace with your chat ID
 
 // Simplified sendToTelegram function
 async function sendToTelegram(message, filePath = null) {
